@@ -1,0 +1,10 @@
+venv
+*pycache*
+Devops*
+*.log
+*.exe
+*.bkp
+venv*
+var*
+**/grafana
+__py*
