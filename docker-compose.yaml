@@ -1,0 +1,44 @@
+version: '3'
+services:
+  flask-app: # Configuração do serviço Flask
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      #- db-app
+      - wait-for-db  # Aguarda até que o serviço "wait-for-db" esteja pronto      
+    # environment:
+    #    # Variável de ambiente para a URI do banco de dados MySQL
+    #   - SQLALCHEMY_DATABASE_URI=mysql://app:ZTUyNTAyMjczNjdi@db-app:3306/webhook
+    env_file:
+      - .env
+    networks:
+      - stack_net
+  db-app: # Configuração do serviço de banco de dados MySQL
+    image: mysql:5.7
+    #image: mysql:latest
+    environment:
+      # Configuração das variáveis de ambiente do MySQL
+      - MYSQL_ROOT_PASSWORD=ZTUyNTAyMjczNjdi
+      - MYSQL_DATABASE=webhook
+      - MYSQL_USER=app
+      - MYSQL_PASSWORD=ZTUyNTAyMjczNjdi
+      - MYSQL_ROOT_HOST:'%'  # Permite conexões remotas ao MySQL
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./var/lib/mysql:/var/lib/mysql
+    networks:
+      - stack_net
+  wait-for-db:
+    build:
+      context: .
+    depends_on:
+      - db-app
+    command: ["python", "wait-for-db.py"]
+networks:
+  stack_net:  # utilizando a rede externa
+    external: true
+
+    
