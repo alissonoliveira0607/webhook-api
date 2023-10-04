@@ -1,0 +1,13 @@
+venv
+*pycache*
+Devops*
+*.log
+*.git
+*.exe
+*.bkp
+venv*
+var*
+**/grafana
+__py*
+stack*
+stress*
