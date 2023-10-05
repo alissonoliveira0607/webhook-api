@@ -10,14 +10,14 @@ services:
       - wait-for-db  # Aguarda até que o serviço "wait-for-db" esteja pronto      
     # environment:
     #    # Variável de ambiente para a URI do banco de dados MySQL
-    #   - SQLALCHEMY_DATABASE_URI=mysql://app:ZTUyNTAyMjczNjdi@db-app:3306/webhook
+    #   - SQLALCHEMY_DATABASE_URI=mysql://user:senha@db-app:3306/database
     env_file:
       - .env
     networks:
       - stack_net
   db-app: # Configuração do serviço de banco de dados MySQL
-    image: mysql:5.7
-    #image: mysql:latest
+    #image: mysql:5.7
+    image: mysql:8.1.0
     environment:
       # Configuração das variáveis de ambiente do MySQL
       # Criar um arquivo .env contendo as variaveis e seus valores
