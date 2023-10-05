@@ -8,3 +8,5 @@ venv*
 var*
 **/grafana
 __py*
+.env*
+*.env
