@@ -16,8 +16,8 @@ services:
     networks:
       - stack_net
   db-app: # Configuração do serviço de banco de dados MySQL
-    #image: mysql:5.7
-    image: mysql:8.1.0
+    image: mysql:5.7
+    #image: mysql:8.1.0
     environment:
       # Configuração das variáveis de ambiente do MySQL
       # Criar um arquivo .env contendo as variaveis e seus valores
