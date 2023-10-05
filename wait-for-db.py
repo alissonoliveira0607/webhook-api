@@ -31,10 +31,10 @@ def wait_for_db(host, port, user, password, max_attempts=60, delay=15):
 
 if __name__ == "__main__":
     # Obtém informações do banco de dados a partir de variáveis de ambiente ou usa valores padrão
-    db_host = os.environ.get('DB_HOST', 'db-app')
-    db_port = int(os.environ.get('DB_PORT', 3306))
-    db_user = os.environ.get('DB_USER', 'app')
-    db_password = os.environ.get('DB_PASSWORD', 'ZTUyNTAyMjczNjdi')
+    db_host = os.environ.get('DB_HOST')
+    db_port = int(os.environ.get('DB_PORT'))
+    db_user = os.environ.get('DB_USER')
+    db_password = os.environ.get('DB_PASSWORD')
 
     # Chama a função wait_for_db para esperar que o banco de dados fique disponível
     if wait_for_db(db_host, db_port, db_user, db_password):
