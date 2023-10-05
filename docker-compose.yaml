@@ -20,10 +20,10 @@ services:
     #image: mysql:latest
     environment:
       # Configuração das variáveis de ambiente do MySQL
-      - MYSQL_ROOT_PASSWORD=ZTUyNTAyMjczNjdi
-      - MYSQL_DATABASE=webhook
-      - MYSQL_USER=app
-      - MYSQL_PASSWORD=ZTUyNTAyMjczNjdi
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
       - MYSQL_ROOT_HOST:'%'  # Permite conexões remotas ao MySQL
     ports:
       - "3306:3306"
