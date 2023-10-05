@@ -79,6 +79,10 @@ def iso_to_formatted_datetime(iso_datetime):
     else:
         return None
 
+# Cria a tabela no banco de dados se ela não existir
+with app.app_context():
+    db.create_all()
+
 # Rota para inserção de dados no banco de dados
 @app.route('/api/insert_data', methods=['POST'])
 def insert_data():
