@@ -20,6 +20,7 @@ services:
     #image: mysql:latest
     environment:
       # Configuração das variáveis de ambiente do MySQL
+      # Criar um arquivo .env contendo as variaveis e seus valores
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_DATABASE=${DB_DATABASE}
       - MYSQL_USER=${DB_USER}
